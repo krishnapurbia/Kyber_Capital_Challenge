@@ -16,6 +16,7 @@
 7. [Simulation Results](#7-simulation-results)
 8. [Final Decision: (0, 16)](#8-final-decision-0-16)
 9. [Repository Structure](#9-repository-structure)
+10. [Game Theory Side of Submission](#10-game-theory)
 
 ---
 
@@ -367,4 +368,59 @@ python kyber_analysis.py --h 14 15 16 17 18 20 --x-step 5 --seeds 10
 python optimse_kyber.py
 ```
 
+## 10. Game Theory Intuition Behind My Submission
+## 
+
+This challenge is not only about optimization, but also about **game theory** and predicting how other participants behave.
+
+A large number of casual participants are likely to choose:
+
+* `x = 0` with `h ∈ [10,25]`
+* or solutions around `(x ≈ 290–300, h ≈ 25–43)`
+
+These are the most “obvious-looking” regions of the search space, so heavy clustering is expected there.
+
+Another group of stronger participants will probably converge near:
+
+* `(x ≈ 250, h ≈ 29)`
+
+because these values often produce good averages in simulations.
+
+One interesting observation was regarding the choice of `h`:
+
+* Many people psychologically prefer **odd numbers**, especially values like `17`.
+* Because of this, I intentionally avoided `h = 17`, even though it performs reasonably well.
+* Instead, values like `16` are less likely to be overcrowded while still giving competitive performance.
+
+From experimentation, the following trends appeared:
+
+* Values with `h < 10` generally do not make much sense.
+* Values with `h > 45` also become inefficient.
+* For `h ∈ [10,25]`, **lower `x` values** tend to produce better average results.
+* For `h ∈ [25,50]`, **higher `x` values** can produce stronger averages.
+
+However, there is an important tradeoff:
+
+* Larger `x` introduces significantly more **volatility**.
+* Smaller `x` gives more **stable and consistent** outcomes.
+
+In many simulations, I observed that:
+
+* lower `h` + lower `x`
+  and
+* higher `h` + higher `x`
+
+could achieve similar average performance.
+
+But the higher-`x` strategies were much more unstable due to crowd interaction effects and variance in toll behavior.
+
+Because of this, I leaned toward a **low-volatility strategy**.
+My intuition was that a stable and consistent solution could outperform riskier high-variance approaches over repeated runs.
+
+That is one of the reasons I was drawn toward choices close to:
+
+* `x = 0`
+* and comparatively smaller `h`
+
+The overall goal was not simply maximizing a single simulation score, but finding a submission that remains consistently competitive even under crowd pressure and clustering effects.
 
