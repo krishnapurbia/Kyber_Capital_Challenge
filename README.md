@@ -16,7 +16,7 @@
 7. [Simulation Results](#7-simulation-results)
 8. [Final Decision: (0, 16)](#8-final-decision-0-16)
 9. [Repository Structure](#9-repository-structure)
-10. [Game Theory Side of Submission](#10-game-theory)
+10. [Game Theory Side of Submission](#10-Game-Theory-Intuition-Behind-My-Submission)
 
 ---
 
@@ -367,9 +367,9 @@ python kyber_analysis.py --h 14 15 16 17 18 20 --x-step 5 --seeds 10
 # Run the optimiser
 python optimse_kyber.py
 ```
+---
 
 ## 10. Game Theory Intuition Behind My Submission
-## 
 
 This challenge is not only about optimization, but also about **game theory** and predicting how other participants behave.
 
@@ -421,6 +421,7 @@ That is one of the reasons I was drawn toward choices close to:
 
 * `x = 0`
 * and comparatively smaller `h`
+```
 
 The overall goal was not simply maximizing a single simulation score, but finding a submission that remains consistently competitive even under crowd pressure and clustering effects.
 
